@@ -3,7 +3,7 @@
 [🇬🇧 English Version](README.md)
 
 <p align="center">
-  <img src="com.ulli.printbuddy.sdPlugin/imgs/printerbuddy_logo.jpg" alt="PrintBuddy Logo" width="220" />
+  <img src="img/printerbuddy_logo.jpg" alt="PrintBuddy Logo" width="220" />
 </p>
 
 <h1 align="center">PrintBuddy</h1>

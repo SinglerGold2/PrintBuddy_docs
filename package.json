@@ -1,0 +1,32 @@
+{
+  "scripts": {
+    "build": "rollup -c && npm run test:editions",
+    "build:lite": "npm run build",
+    "build:pro": "npm run build",
+    "themes:generate": "node scripts/generate-pi-defaults.mjs",
+    "i18n:generate": "node scripts/generate-pi-i18n.mjs",
+    "i18n:audit": "node scripts/i18n-audit.mjs",
+    "test:providers": "node scripts/test-providers.mjs",
+    "test:editions": "node scripts/test-editions.mjs",
+    "test:logos": "node scripts/test-theme-logos.mjs",
+    "watch": "rollup -c -w --watch.onEnd=\"npm run test:editions && streamdeck restart com.ulli.printbuddy.lite && streamdeck restart com.ulli.printbuddy\""
+  },
+  "type": "module",
+  "devDependencies": {
+    "@elgato/cli": "^1.9.0",
+    "@rollup/plugin-commonjs": "^29.0.2",
+    "@rollup/plugin-node-resolve": "^15.2.2",
+    "@rollup/plugin-terser": "^1.0.0",
+    "@rollup/plugin-typescript": "^12.1.0",
+    "@tsconfig/node20": "^20.1.2",
+    "@types/node": "~24.1.0",
+    "cross-env": "^7.0.3",
+    "rollup": "^4.0.2",
+    "tslib": "^2.6.2",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "@elgato/streamdeck": "^2.0.0"
+  },
+  "version": "0.10.6"
+}

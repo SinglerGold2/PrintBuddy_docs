@@ -12,7 +12,7 @@
   <a href="https://github.com/SinglerGold2/PrintBuddy/actions/workflows/build.yml">
     <img src="https://github.com/SinglerGold2/PrintBuddy/actions/workflows/build.yml/badge.svg" alt="Build Status" />
   </a>
-  <img src="https://img.shields.io/badge/version-v0.9.1-blue" alt="Version" />
+  <img src="https://img.shields.io/badge/version-v0.10.6-blue" alt="Version" />
 </p>
 
 <p align="center">
@@ -20,14 +20,14 @@
   <img src="https://img.shields.io/badge/macOS-supported-000000?logo=apple&logoColor=white" alt="macOS" />
 </p>
 
-Stand: 20.09.2026
-Version: `0.9.1`
+Stand: 24.09.2026
+Version: `0.10.6`
 
 ## [BEHOBEN] Multitool-IP-Eingabe flackerte und Extruder-Auswahl konnte zurückspringen
 
 - **Kurzbeschreibung:** Die Multitool-Settings-Normalisierung verglich `selectedExtruders`-Arrays per Referenz. Inhaltlich gleiche Arrays wurden als Änderung gewertet, was wiederholte Save/Write-back-Schleifen auslöste und zu flackernder IP-Eingabe sowie instabilem Extruder-Auswahlverhalten führte.
 - **Betroffener Bereich:** `src/actions/multitool-monitor.ts`, `com.ulli.printbuddy.sdPlugin/ui/multitool-monitor.html`
-- **Behoben in:** `0.9.1`
+- **Behoben in:** `0.9.2`
 - **Lösung:** Auf wertbasierten Vergleich normalisierter Multitool-Felder umgestellt, dynamische Controls und aktive Eingaben beim Refresh erhalten und Lite/Pro-Regressions-Tests ohne Netzwerkzugriff ergänzt.
 - **Status:** Behoben; physische Stream-Deck-Stichprobe läuft.
 
@@ -98,4 +98,5 @@ Version: `0.9.1`
 ## Vollstaendige Release-Historie
 
 - Fuer die vollstaendige Versionshistorie siehe [PATCHNOTES.de.md](PATCHNOTES.de.md).
+
 

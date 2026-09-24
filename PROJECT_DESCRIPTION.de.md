@@ -12,7 +12,7 @@
   <a href="https://github.com/SinglerGold2/PrintBuddy/actions/workflows/build.yml">
     <img src="https://github.com/SinglerGold2/PrintBuddy/actions/workflows/build.yml/badge.svg" alt="Build Status" />
   </a>
-  <img src="https://img.shields.io/badge/version-v0.9.1-blue" alt="Version" />
+  <img src="https://img.shields.io/badge/version-v0.10.6-blue" alt="Version" />
 </p>
 
 <p align="center">
@@ -20,8 +20,8 @@
   <img src="https://img.shields.io/badge/macOS-supported-000000?logo=apple&logoColor=white" alt="macOS" />
 </p>
 
-Letzte Aktualisierung: 20.09.2026 (lokal)
-Versionsstand: `0.9.1`
+Letzte Aktualisierung: 24.09.2026 (lokal)
+Versionsstand: `0.10.6`
 
 ## Ziel
 
@@ -42,6 +42,8 @@ PrintBuddy ist ein Stream-Deck-Plugin zur Überwachung und Steuerung von 3D-Druc
 - Stabiles Extruder-Auswahlverhalten in Lite/Pro mit erhaltener Reihenfolge, Labels und Vier-Tool-Limit
 - Eindeutige Core-Modulnamen für Lokalisierung, Action-Einstellungen, Themes und Style-Rendering
 - Standardisierte englische JSDoc-SDK-Header in Core- und PI-Shared-Modulen
+- Gemeinsamer Lite/Pro-Build- und Paritäts-Workflow mit erzwungener Versions-/Manifest-/UI-/Provider-Synchronisierung
+- Normalisierte gebündelte Theme-JSON-Metadaten/-Struktur mit Unterstützung für semantische Paritätsvalidierung
 
 ## Actions
 
@@ -63,4 +65,5 @@ PrintBuddy ist ein Stream-Deck-Plugin zur Überwachung und Steuerung von 3D-Druc
 ## Vollstaendige Release-Historie
 
 - Fuer die vollstaendige Versionshistorie siehe [PATCHNOTES.de.md](PATCHNOTES.de.md).
+
 

@@ -2,7 +2,7 @@
 
 [🇬🇧 English Version](i18n-refactoring-log.md)
 
-Versionsbezug: `0.9.1`
+Versionsbezug: `0.9.2`
 
 ## Umfang
 
@@ -33,3 +33,4 @@ Versionsbezug: `0.9.1`
 - Generierter Browser-Katalog: `com.ulli.printbuddy.sdPlugin/ui/shared/i18n-locales.js`
 - Gemeinsamer Tastenrenderer: `src/core/render/ButtonRenderer.ts`
 - SVG-Textserialisierung: `src/core/render/text-render.ts`
+

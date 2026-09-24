@@ -2,7 +2,7 @@
 
 [🇩🇪 Deutsche Version](theme-style-separation.de.md)
 
-Version reference: `0.9.1`
+Version reference: `0.9.2`
 
 ## Goal
 
@@ -14,7 +14,7 @@ Ensure layout rendering (button style) and visual palette (theme) are cleanly se
 - Registry-based style resolution and rendering dispatch in `src/core/graphics/styles/button-style-renderer.ts`.
 - Theme presets provide palette/text defaults only and do not override style selection.
 - Theme preset aggregation lives in `src/core/themes/theme-registry.ts`.
-- Theme IDs, labels, palettes, and rendering overrides live in runtime-loaded `com.ulli.printbuddy.sdPlugin/themes/*.theme.json` files. Pro additionally loads user themes from `Documents/PrintBuddy/Themes`; generated Property Inspector defaults use the bundled JSON files.
+- Theme IDs, labels, palettes, and rendering overrides live in runtime-loaded `com.ulli.printbuddy.sdPlugin/themes/*.theme.json` files. Pro additionally loads user themes from `com.ulli.printbuddy.sdPlugin/themes/userthemes`; generated Property Inspector defaults use the bundled JSON files.
 - Runtime consumers import directly from the canonical `themes` domain; the former `src/core/theme/` compatibility wrappers have been removed.
 - Action setting normalization is provided by `src/core/action-settings.ts`.
 - `src/core/render/ButtonRenderer.ts` composes the resolved style background with message or telemetry text; it consumes resolved settings but does not own theme selection or style definitions.
@@ -41,3 +41,4 @@ Ensure layout rendering (button style) and visual palette (theme) are cleanly se
 - Backward-compatible rendering API.
 - Descriptive module filenames replace ambiguous `index.ts` and `settings.ts` names.
 - PrintBuddy Status now shares one 144x144 composition path for regular telemetry and localized connection messages without merging theme, style and text-layout responsibilities.
+

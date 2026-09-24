@@ -12,7 +12,7 @@
   <a href="https://github.com/SinglerGold2/PrintBuddy/actions/workflows/build.yml">
     <img src="https://github.com/SinglerGold2/PrintBuddy/actions/workflows/build.yml/badge.svg" alt="Build Status" />
   </a>
-  <img src="https://img.shields.io/badge/version-v0.9.1-blue" alt="Version" />
+  <img src="https://img.shields.io/badge/version-v0.10.6-blue" alt="Version" />
 </p>
 
 <p align="center">
@@ -20,8 +20,8 @@
   <img src="https://img.shields.io/badge/macOS-supported-000000?logo=apple&logoColor=white" alt="macOS" />
 </p>
 
-Status date: 20.09.2026 (local)
-Version status: `0.9.1`
+Status date: 24.09.2026 (local)
+Version status: `0.10.6`
 
 ## Goal
 
@@ -31,7 +31,7 @@ Deliver a stable, professional Stream Deck plugin for 3D printer monitoring and 
 
 ### Done
 
-- Release version synchronized to `0.9.1` across manifest, package metadata, build metadata and documentation.
+- Release version synchronized to `0.10.6` across manifest, package metadata, build metadata and documentation.
 - Status, Status FX and MultiExtruder settings are organized into localized tabs.
 - Status FX gauges support separate visibility per data type, configurable temperature ranges and colours for normal and over-100% values.
 - Ring, arc and segmented gauge layouts keep their labels and values readable.
@@ -57,6 +57,8 @@ Deliver a stable, professional Stream Deck plugin for 3D printer monitoring and 
 - Fixed Multitool Property Inspector IP input flickering caused by settings echo loops.
 - Restored reliable extruder selection handling in Lite/Pro (select/deselect, order, labels, four-tool cap).
 - Added Lite/Pro Multitool regression tests and confirmed they run without network access.
+- Enforced synchronized Lite/Pro build and release flow (`build`, `build:lite`, `build:pro`) with explicit edition-parity checks.
+- Normalized bundled theme JSON files (consistent structure/formatting, guaranteed `logo` object) and standardized JSON-compatible theme metadata in English.
 
 ### In Progress
 
@@ -68,8 +70,8 @@ Deliver a stable, professional Stream Deck plugin for 3D printer monitoring and 
 
 ## Validation
 
-- `npm run build`: passed for release `0.9.1`.
-- `npm run i18n:audit`: passed with 12 active locales and 149 reference keys.
+- `npm run build`: passed for release `0.10.6`.
+- `npm run i18n:audit`: passed with 13 active locales and 166 reference keys.
 - `npx tsc --noEmit`: passed.
 - `node scripts/test-status-webcam.mjs`: passed.
 - `node scripts/test-multitool.mjs`: passed.
@@ -98,4 +100,5 @@ Required execution order:
 ## Full Release History
 
 - For the complete version history, see [PATCHNOTES.md](PATCHNOTES.md).
+
 

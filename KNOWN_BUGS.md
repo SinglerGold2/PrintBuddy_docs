@@ -12,7 +12,7 @@
   <a href="https://github.com/SinglerGold2/PrintBuddy/actions/workflows/build.yml">
     <img src="https://github.com/SinglerGold2/PrintBuddy/actions/workflows/build.yml/badge.svg" alt="Build Status" />
   </a>
-  <img src="https://img.shields.io/badge/version-v0.9.1-blue" alt="Version" />
+  <img src="https://img.shields.io/badge/version-v0.10.6-blue" alt="Version" />
 </p>
 
 <p align="center">
@@ -20,8 +20,8 @@
   <img src="https://img.shields.io/badge/macOS-supported-000000?logo=apple&logoColor=white" alt="macOS" />
 </p>
 
-Status date: 20.09.2026
-Version: `0.9.1`
+Status date: 24.09.2026
+Version: `0.10.6`
 
 ## Critical
 
@@ -50,3 +50,4 @@ _No known low-priority bugs._
 ## Full Release History
 
 - For the complete version history, see [PATCHNOTES.md](PATCHNOTES.md).
+

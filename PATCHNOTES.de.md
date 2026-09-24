@@ -1,5 +1,40 @@
 # Patchnotes
 
+## Version 0.10.6 - 24.09.2026
+
+### Änderungen
+
+- Alle gebündelten Theme-JSON-Dateien auf eine konsistente Struktur und Formatierung vereinheitlicht, inklusive garantiertem `logo`-Objekt (`id: "none"` als Standard ohne Logo-Zuordnung).
+- JSON-kompatible Metadatenfelder (`_header`, `_comment`) in allen Themes ergänzt sowie `_ipNotice` in gebrandeten/Logo-Themes; sämtliche Metadaten-Texte auf Englisch vereinheitlicht.
+- Editions-Paritätsprüfung auf semantischen Theme-JSON-Vergleich (geparstes JSON) umgestellt, damit reine Format-/Metadatenänderungen keine Fehlalarme erzeugen.
+- Lite/Pro über den gemeinsamen Build-/Paritätsablauf synchron gehalten und lokal mit `npm run build`, `npm run test:logos` und `npm run test:editions` validiert.
+
+## Version 0.10.5 - 23.09.2026
+
+### Änderungen
+
+- Gemeinsamen Build für Quell-Plugin, Lite und Pro verbindlich gemacht (auch über `build:lite`/`build:pro`); Paritätsprüfung für Version/Zeitstempel, gemeinsame UI, Provider und bestehende Editionsgrenzen ergänzt. Bambu LAN ist kein Pro-exklusives Feature. Watch aktualisiert und startet beide Editionen neu.
+- Gemeinsame Unterstützung für den **Bambu-LAN-Provider** über `BambuLanClient` ergänzt, inklusive Factory-Verdrahtung über `provider: bambu` und Anbindung in Action-/Provider-Settings.
+- Bambu-Befehlszuordnung für `pause`, `resume`, `cancel` (mit Mapping `cancel -> stop`) ergänzt/validiert und Action-seitige Offline-/Verbindungsfehlerdarstellung ausgerichtet.
+- Webcam-URL-Modusauflösung (`jpeg`, `rtsp`, `rtsps`) sowie Telemetrie-Normalisierung für Bambu ergänzt, inklusive Chamber-Temperatur-Fallback.
+- Provider-Lifecycle-/Recovery-Abdeckung für MQTT-Pfade erweitert (connect/subscribe/pushall/ping/reconnect).
+- Lokale Validierung erfolgreich mit `npm run build` und `node scripts/test-providers.mjs`; abschließendes Release-Gate bleibt die Hardwareprüfung am echten Bambu-Gerät.
+
+## Version 0.10.0 - 23.09.2026
+
+### Änderungen
+
+- Prusa-Hinweise in allen 13 Sprachen übersetzt; API-Key-Vorrang und leeres API-Key-Feld bei Digest erklärt. Steuerungsgrenzen bleiben ausschließlich in Control.
+- Einfärbbare Template-Hintergrundlogos für zwölf Marken ergänzt, einschließlich Dropdown, Farbe, Deckkraft, Größe, Theme-Dateispeicherung und Action-Fallback ohne Logo.
+- SVG-Aufbereitung, Entwickleranleitung und Rendering-/Speicher-Regressionsprüfungen ergänzt. Herkunft allsvgicons.com/svgrepo.com dokumentiert; konkrete Lizenznachweise bleiben vor Veröffentlichung erforderlich.
+
+- Lokales PrusaLink v1 mit API-Key-/Digest-Anmeldung, Status-Polling und Pause/Fortsetzen/Abbruch.
+- Gemeinsame Provider-Auswahl und Speicherung der Zugangsdaten in allen fünf Property Inspectors, Pro und Lite.
+- Moonraker bleibt Standard; Befehls-Endpunkte und G-Code-Kompatibilitätsfallback bleiben erhalten.
+- Nicht unterstützte Prusa-Befehle einschließlich Not-Aus werden blockiert; explizite Webcam-Snapshot-URL erforderlich.
+- Gemockte Provider-Regressionstests ergänzt. Hardware-Prüfung steht aus; Umfang und Sicherheitshinweise siehe README.
+- Optionale Prusa-Jobdetails, Zahlenstring-Verarbeitung und Fortschrittsgrenzen abgesichert; Regressionstests für Jobwechsel, fehlende Daten, Anmeldefehler und Abbruch während der Detailabfrage ergänzt. Gantrybar-Quellenangabe mit fester Revision und MIT-Hinweis in beiden Distributionen ergänzt.
+
 [🇬🇧 English Version](PATCHNOTES.md)
 
 <p align="center">
@@ -12,7 +47,7 @@
   <a href="https://github.com/SinglerGold2/PrintBuddy/actions/workflows/build.yml">
     <img src="https://github.com/SinglerGold2/PrintBuddy/actions/workflows/build.yml/badge.svg" alt="Build Status" />
   </a>
-  <img src="https://img.shields.io/badge/version-v0.9.1-blue" alt="Version" />
+  <img src="https://img.shields.io/badge/version-v0.10.6-blue" alt="Version" />
 </p>
 
 <p align="center">
@@ -20,15 +55,15 @@
   <img src="https://img.shields.io/badge/macOS-supported-000000?logo=apple&logoColor=white" alt="macOS" />
 </p>
 
-## Version 0.9.1 - 20.09.2026
+## Version 0.9.2 - 23.09.2026
 
 ### Änderungen
 
-- Das Flackern der Multitool-IP im Property Inspector wurde behoben; Ursache waren wiederholte Settings-Schreibvorgänge, weil normalisierte `selectedExtruders`-Arrays per Referenz verglichen wurden.
-- Der referenzbasierte Vergleich wurde durch einen wertbasierten Vergleich der normalisierten Multitool-Einstellungen ersetzt, um Save-Echo-Loops zu vermeiden.
-- Zuverlässiges Verhalten beim Auswählen/Abwählen der Extruder in Lite und Pro wiederhergestellt, inklusive Auswahlreihenfolge, Labels und Maximum von vier Tools.
-- Aktive Eingaben und dynamische Tool-Steuerelemente im Property Inspector bleiben bei Settings-Refresh erhalten.
-- Multitool-Regressions-Tests ergänzt, die explizit keinen Netzwerkzugriff verwenden und das Persistenzverhalten der Auswahl absichern.
+- Risiko-/Fehlfunktionen bei Theme-Dateiaktionen im Property Inspector entfernt und nur den sicheren Theme-Datei-Workflow beibehalten.
+- Theme-Aktionen im Property Inspector unterstützen jetzt nur noch `themes:save` (Save as…) und `themes:reload` (Reload).
+- Obsolete Backend-Verarbeitung für `themes:openFolder` entfernt.
+- User-Theme-Dokumentation um Namensregeln, Save/Reload-Ablauf, JSON-Struktur und Validierungsregeln ergänzt/erweitert.
+- Pro-Build-Cleanup so abgesichert, dass der User-Theme-Ordner beim Rebuild nicht gelöscht wird.
 
 ## Version 0.8.0 - 17.09.2026
 
@@ -227,3 +262,4 @@
 ### Änderungen
 
 - Erster formaler semantischer Versionssprung auf 0.1.0 eingeführt.
+

@@ -12,7 +12,7 @@
   <a href="https://github.com/SinglerGold2/PrintBuddy/actions/workflows/build.yml">
     <img src="https://github.com/SinglerGold2/PrintBuddy/actions/workflows/build.yml/badge.svg" alt="Build Status" />
   </a>
-  <img src="https://img.shields.io/badge/version-v0.9.1-blue" alt="Version" />
+  <img src="https://img.shields.io/badge/version-v0.10.6-blue" alt="Version" />
 </p>
 
 <p align="center">
@@ -20,14 +20,14 @@
   <img src="https://img.shields.io/badge/macOS-supported-000000?logo=apple&logoColor=white" alt="macOS" />
 </p>
 
-Status date: 20.09.2026
-Version: `0.9.1`
+Status date: 24.09.2026
+Version: `0.10.6`
 
 ## [FIXED] Multitool IP input flickered and extruder selection could reset
 
 - **Summary:** Multitool settings normalization compared `selectedExtruders` arrays by reference. Equivalent arrays were treated as changed, triggering repeated save/write-back loops and causing Property Inspector IP field flicker and unstable extruder selection behavior.
 - **Affected area:** `src/actions/multitool-monitor.ts`, `com.ulli.printbuddy.sdPlugin/ui/multitool-monitor.html`
-- **Fixed in:** `0.9.1`
+- **Fixed in:** `0.9.2`
 - **Resolution:** Switched to value-based settings comparison for normalized Multitool fields, preserved dynamic controls and active edits during refresh, and added regression tests for Lite/Pro selection behavior without network access.
 - **Status:** Fixed; physical Stream Deck spot verification is in progress.
 
@@ -98,4 +98,5 @@ Version: `0.9.1`
 ## Full Release History
 
 - For the complete version history, see [PATCHNOTES.md](PATCHNOTES.md).
+
 

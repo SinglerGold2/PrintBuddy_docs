@@ -2,7 +2,7 @@
 
 [🇩🇪 Deutsche Version](i18n-refactoring-log.de.md)
 
-Version reference: `0.9.1`
+Version reference: `0.9.2`
 
 ## Scope
 
@@ -33,3 +33,4 @@ Version reference: `0.9.1`
 - Generated browser catalog: `com.ulli.printbuddy.sdPlugin/ui/shared/i18n-locales.js`
 - Shared button renderer: `src/core/render/ButtonRenderer.ts`
 - SVG text serializer: `src/core/render/text-render.ts`
+

@@ -1,5 +1,40 @@
 # Patch Notes
 
+## Version 0.10.6 - 24.09.2026
+
+### Changes
+
+- Normalized all bundled theme JSON files to a consistent structure and formatting, including a guaranteed `logo` object (`id: "none"` default where no logo is assigned).
+- Added JSON-compatible metadata fields (`_header`, `_comment`) across themes and `_ipNotice` for branded/logo themes, with all metadata text standardized to English.
+- Updated edition parity checks to compare theme JSON semantically (parsed JSON), preventing false mismatches from formatting/metadata-only edits.
+- Kept Lite/Pro synchronized through the shared build/parity flow and validated locally with `npm run build`, `npm run test:logos`, and `npm run test:editions`.
+
+## Version 0.10.5 - 23.09.2026
+
+### Changes
+
+- Made source-plugin, Lite and Pro builds a shared workflow (including `build:lite`/`build:pro`); added parity checks for version/timestamp, shared UI, providers and existing edition boundaries. Bambu LAN is not Pro-exclusive. Watch updates and restarts both editions.
+- Added shared **Bambu LAN provider** support through `BambuLanClient`, wired via `provider: bambu` in the provider factory and action/provider settings flow.
+- Added/validated Bambu command scope mapping for `pause`, `resume`, `cancel` (`cancel` maps to `stop`) and aligned action-side connectivity/offline error rendering.
+- Added webcam URL mode resolution (`jpeg`, `rtsp`, `rtsps`) and telemetry normalization behavior for Bambu, including chamber temperature fallback handling.
+- Extended provider lifecycle/recovery test coverage across MQTT connect/subscribe/pushall/ping/reconnect paths.
+- Local validation passed with `npm run build` and `node scripts/test-providers.mjs`; live Bambu hardware verification remains the final release-gate step.
+
+## Version 0.10.0 - 23.09.2026
+
+### Changes
+
+- Translated Prusa hints into all 13 languages; clarified API-key precedence and leaving the key empty for Digest. Control limitations remain Control-only.
+- Added tintable template background logos for twelve brands, including dropdown, color, opacity, size, theme-file persistence and the existing action fallback without a logo.
+- Added SVG preparation, developer documentation and rendering/persistence regression checks. Recorded allsvgicons.com/svgrepo.com provenance; per-asset license clearance is still required before publication.
+
+- Local PrusaLink v1 with API-key/Digest authentication, status polling and pause/resume/cancel.
+- Shared provider selection and credential persistence in all five Property Inspectors, Pro and Lite.
+- Moonraker remains the default; command endpoints and G-code compatibility fallback are preserved.
+- Unsupported Prusa operations are blocked, including emergency stop; explicit webcam snapshot URL required.
+- Added mocked provider regressions. Hardware validation is outstanding; see README for scope and security notes.
+- Hardened optional Prusa job details, numeric-string parsing and progress bounds; added regressions for job changes, missing data, authentication failures and detail cancellation. Added pinned Gantrybar attribution/MIT notice to both distributions.
+
 [🇩🇪 Deutsche Version](PATCHNOTES.de.md)
 
 <p align="center">
@@ -12,7 +47,7 @@
   <a href="https://github.com/SinglerGold2/PrintBuddy/actions/workflows/build.yml">
     <img src="https://github.com/SinglerGold2/PrintBuddy/actions/workflows/build.yml/badge.svg" alt="Build Status" />
   </a>
-  <img src="https://img.shields.io/badge/version-v0.9.1-blue" alt="Version" />
+  <img src="https://img.shields.io/badge/version-v0.10.6-blue" alt="Version" />
 </p>
 
 <p align="center">
@@ -20,15 +55,15 @@
   <img src="https://img.shields.io/badge/macOS-supported-000000?logo=apple&logoColor=white" alt="macOS" />
 </p>
 
-## Version 0.9.1 - 20.09.2026
+## Version 0.9.2 - 23.09.2026
 
 ### Changes
 
-- Fixed Multitool Property Inspector IP flickering caused by repeated settings writes when normalized `selectedExtruders` arrays were compared by reference.
-- Replaced reference-based comparison with value-based comparison for normalized Multitool settings to avoid save echo loops.
-- Restored reliable extruder selection/deselection behavior in Lite and Pro, including selection order, labels and the maximum of four selected tools.
-- Preserved active edits and dynamic tool controls in the Property Inspector while settings are refreshed.
-- Added Multitool regression tests that explicitly avoid network access and protect the selection persistence behavior.
+- Removed risky/non-working theme file actions from Property Inspectors and kept only the safe theme file workflow.
+- Property Inspector theme actions now support only `themes:save` (Save as…) and `themes:reload` (Reload).
+- Removed obsolete backend handling for `themes:openFolder`.
+- Added/expanded user-theme documentation with naming rules, save/reload flow, JSON structure and validation constraints.
+- Preserved Pro build output user-theme folder during rebuild cleanup to avoid deleting user theme files/docs.
 
 ## Version 0.8.0 - 17.09.2026
 
@@ -227,3 +262,4 @@
 ### Changes
 
 - Introduced first formal semantic release bump to 0.1.0.
+

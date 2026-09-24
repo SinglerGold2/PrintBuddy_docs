@@ -1,9 +1,41 @@
 # PrintBuddy
 
+## Provider integration (v0.10.6)
+
+Pro and Lite offer **Klipper / Moonraker** (default for existing profiles), **local PrusaLink v1** and **Bambu LAN (local)** in every included Property Inspector. Provider selection is not an edition difference. For Bambu LAN, enter the local printer address, serial number and LAN access code; real-printer validation remains outstanding. For PrusaLink, enter the printer's local address and either an API key (where supported by firmware) or its PrusaLink username/password for HTTP Digest authentication. An API key takes precedence. Do not use Prusa Connect cloud credentials.
+
+- Prusa status: nozzle/bed temperature, progress, state, filename, remaining time, Z position, speed/flow and print-fan RPM when supplied by firmware. Polling is at least one second per action, with five-second request timeouts and automatic recovery.
+- Prusa controls: **Pause, Resume, Cancel**. Cancel retains hold-to-confirm. **Emergency Stop is not mapped to job cancellation.** Lights, Speed Dial and free-form G-code are unavailable.
+- MultiExtruder displays the reported current nozzle in slot T0. Individual XL tool mapping is not implemented or verified; other slots show unknown values. This is an integration limit, not a claim of technical impossibility.
+- Prusa webcams require an explicit, independently accessible snapshot URL. Printer credentials are never forwarded to webcam hosts.
+- Credentials are stored in Stream Deck action settings (not an encrypted vault). Avoid exporting profiles with secrets; use HTTPS where supported or a trusted local network. Redirects are rejected; TLS verification remains enabled.
+- Legacy PrusaLink `/api/printer`-only firmware and Prusa Connect cloud are not implemented or verified. Provider hints are translated in all 13 languages. Leave the API key empty when using username/password; find credentials on the printer under Settings → Network → PrusaLink.
+- Job details are optional: missing details, network failures and detail timeouts preserve the current base status. Authentication failures and explicit cancellation are not hidden. Only matching job IDs are merged; old filenames and measurements are not retained between polls. Finite numeric strings are accepted; only progress is clamped to 0–100% (not speed/flow). Missing progress remains unknown.
+
+Technical reference: [Gantrybar attribution and MIT notice](com.ulli.printbuddy.sdPlugin/THIRD-PARTY-NOTICES.md), pinned to a specific revision and included in both Pro and Lite distributions. Additional Prusa controls remain unimplemented/unverified and are not enabled by this reference.
+
+Validation: `npm run test:providers`, existing control/status/webcam/multitool/theme tests, TypeScript and Pro/Lite builds. Physical-printer and Stream Deck UI smoke tests remain necessary before release.
+
 [🇩🇪 Deutsche Version](README.de.md)
 
+## Template logos (v0.10.0)
+
+Anycubic, Bambu Lab, Creality, Elegoo, Elgato, FlashForge, Fluidd, Klipper,
+OctoPrint, Prusa, Snapmaker and Voron now use matching tintable
+SVG background logos. Themes without an assignment retain the existing action
+appearance. **User Theme → Template Logo** offers logo, color, opacity and size;
+in Pro, **Save as…** stores the assignment in a custom theme. Developers configure
+fixed templates in their JSON files. Control operation symbols remain in front;
+webcam snapshots are unchanged.
+
+The [SVG/theme guide](com.ulli.printbuddy.sdPlugin/themes/README.md) covers
+`currentColor`, `viewBox`, sizing and registering additional logos.
+Source sites: allsvgicons.com and svgrepo.com. Per-asset license clearance remains
+outstanding; see [third-party notices](com.ulli.printbuddy.sdPlugin/THIRD-PARTY-NOTICES.md).
+Regression test: `npm run test:logos`.
+
 <p align="center">
-  <img src="img/printerbuddy_logo.jpg" alt="PrintBuddy Logo" width="220" />
+  <img src="com.ulli.printbuddy.sdPlugin/imgs/printerbuddy_logo.jpg" alt="PrintBuddy Logo" width="220" />
 </p>
 
 <h1 align="center">PrintBuddy</h1>
@@ -12,7 +44,7 @@
   <a href="https://github.com/SinglerGold2/PrintBuddy/actions/workflows/build.yml">
     <img src="https://github.com/SinglerGold2/PrintBuddy/actions/workflows/build.yml/badge.svg" alt="Build Status" />
   </a>
-  <img src="https://img.shields.io/badge/version-v0.9.1-blue" alt="Version" />
+  <img src="https://img.shields.io/badge/version-v0.10.6-blue" alt="Version" />
 </p>
 
 <p align="center">
@@ -22,14 +54,28 @@
 
 Stream Deck plugin for monitoring and controlling 3D printers (focused on Klipper/Moonraker).
 
-**Current Version:** `0.9.1`
+**Current Version:** `0.10.6`
 
-## Changelog (v0.9.1)
+## Changelog (v0.10.6)
 
-- Fixed Multitool Property Inspector IP field flickering by preventing repeated settings rewrites caused by reference-based array comparisons.
-- Fixed extruder selection behavior in Lite and Pro by preserving selected order, labels and the four-tool limit with value-based normalization.
-- Added regression coverage for Multitool selection persistence without touching Moonraker/HTTP network code paths.
-- Preserved dynamic tool controls and active in-progress edits in the Property Inspector during settings synchronization.
+- Enforced synchronized Lite/Pro delivery: shared `build`/`build:lite`/`build:pro` workflow plus parity checks for versions, manifests, shared UI/providers and approved edition differences.
+- Normalized all bundled theme JSON files with consistent formatting and a guaranteed `logo` object (`id: "none"` fallback where no logo is assigned).
+- Added JSON-compatible theme metadata (`_header`, `_comment`) and `_ipNotice` on branded/logo themes; standardized metadata text to English.
+- Hardened theme parity validation to compare parsed JSON instead of raw text, so formatting-only updates do not trigger false mismatches.
+- Validation passed locally with `npm run build`, `npm run test:logos` and `npm run test:editions`; real-device Bambu LAN verification remains the final hardware step.
+
+## Changelog (v0.10.0)
+
+- Added shared provider integration for local PrusaLink v1 (API key or Digest auth) across all Property Inspectors in Pro and Lite, while keeping Moonraker as default.
+- Added tintable template-logo pipeline and expanded selectable logo IDs to Anycubic, Bambu Lab, Creality, Elegoo, Elgato, FlashForge, Fluidd, Klipper, OctoPrint, Prusa, Snapmaker and Voron.
+- Added logo source/prepare/test workflow (`assets/logo-sources` → `scripts/prepare-theme-logos.mjs` → `imgs/logos`) plus updated theme and legal documentation.
+
+## Changelog (v0.9.2)
+
+- Removed risky/non-working theme file actions from the Property Inspector; only safe theme-file flow remains.
+- Theme file actions now expose only **Save as…** (`themes:save`) and **Reload** (`themes:reload`).
+- Removed backend handling for the obsolete **open folder** command.
+- Expanded user-theme documentation for save/reload workflow, naming rules, JSON schema structure and validation expectations.
 
 ## Changelog (v0.8.0)
 
@@ -116,7 +162,12 @@ Stream Deck plugin for monitoring and controlling 3D printers (focused on Klippe
 #### Commands
 - `npm run i18n:generate`
 - `npm run i18n:audit`
-- `npm run build`
+- `npm run build`: builds the source plugin, Lite and Pro together, then verifies edition parity.
+- `npm run build:lite` / `npm run build:pro`: compatibility aliases for the same shared build; no one-sided updates.
+- `npm run test:editions`: checks existing builds for matching versions/timestamps, current shared UI files, all three providers and approved manifest/theme differences.
+- `npm run watch`: updates all three build targets; restarts Lite and Pro after a successful parity check.
+
+**Required edition policy:** Lite and Pro must always share the same source, version and common feature level. Only previously agreed differences are allowed (existing Status FX, theme/customization and extruder limits); new differences require prior agreement. Bambu LAN is available in both editions. Stream Deck must point to the respective `dist/lite` and `dist/pro` plugin directories; a Git push alone does not update an installation.
 
 ## Third-Party Assets
 
@@ -125,3 +176,4 @@ Stream Deck plugin for monitoring and controlling 3D printers (focused on Klippe
 ## Full Release History
 
 - For the complete version history, see [PATCHNOTES.md](PATCHNOTES.md).
+

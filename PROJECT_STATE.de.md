@@ -12,7 +12,7 @@
   <a href="https://github.com/SinglerGold2/PrintBuddy/actions/workflows/build.yml">
     <img src="https://github.com/SinglerGold2/PrintBuddy/actions/workflows/build.yml/badge.svg" alt="Build Status" />
   </a>
-  <img src="https://img.shields.io/badge/version-v0.9.1-blue" alt="Version" />
+  <img src="https://img.shields.io/badge/version-v0.10.6-blue" alt="Version" />
 </p>
 
 <p align="center">
@@ -20,8 +20,8 @@
   <img src="https://img.shields.io/badge/macOS-supported-000000?logo=apple&logoColor=white" alt="macOS" />
 </p>
 
-Stand: 20.09.2026 (lokal)
-Versionsstand: `0.9.1`
+Stand: 24.09.2026 (lokal)
+Versionsstand: `0.10.6`
 
 ## Ziel
 
@@ -31,7 +31,7 @@ Ein stabiles, professionelles Stream-Deck-Plugin für 3D-Drucker-Monitoring und 
 
 ### Erledigt
 
-- Release-Version auf `0.9.1` über Manifest, Paketmetadaten, Build-Metadaten und Dokumentation synchronisiert.
+- Release-Version auf `0.10.6` über Manifest, Paketmetadaten, Build-Metadaten und Dokumentation synchronisiert.
 - Die Einstellungen für Status, Status FX und MultiExtruder sind in lokalisierte Tabs gegliedert.
 - Status-FX-Gauges unterstützen eine separate Sichtbarkeit je Datentyp, einstellbare Temperaturbereiche sowie Farben für normale Werte und Werte über 100 %.
 - Ring-, Bogen- und Kreis-Gauges halten Beschriftungen und Werte gut lesbar.
@@ -57,6 +57,8 @@ Ein stabiles, professionelles Stream-Deck-Plugin für 3D-Drucker-Monitoring und 
 - Flackernde IP-Eingabe im Multitool-Property-Inspector behoben (verursacht durch Settings-Echo-Loops).
 - Zuverlässiges Extruder-Auswahlverhalten in Lite/Pro wiederhergestellt (Auswahl/Abwahl, Reihenfolge, Labels, Vier-Tool-Limit).
 - Lite/Pro-Multitool-Regressions-Tests ergänzt und ohne Netzwerkzugriff validiert.
+- Synchronisierten Lite/Pro-Build- und Release-Ablauf (`build`, `build:lite`, `build:pro`) mit expliziter Editions-Paritätsprüfung verbindlich gemacht.
+- Gebündelte Theme-JSON-Dateien normalisiert (einheitliche Struktur/Formatierung, garantiertes `logo`-Objekt) und JSON-kompatible Theme-Metadaten auf Englisch standardisiert.
 
 ### In Arbeit
 
@@ -68,8 +70,8 @@ Ein stabiles, professionelles Stream-Deck-Plugin für 3D-Drucker-Monitoring und 
 
 ## Validierung
 
-- `npm run build`: für Release `0.9.1` erfolgreich.
-- `npm run i18n:audit`: mit 12 aktiven Locales und 149 Referenzschlüsseln erfolgreich.
+- `npm run build`: für Release `0.10.6` erfolgreich.
+- `npm run i18n:audit`: mit 13 aktiven Locales und 166 Referenzschlüsseln erfolgreich.
 - `npx tsc --noEmit`: erfolgreich.
 - `node scripts/test-status-webcam.mjs`: erfolgreich.
 - `node scripts/test-multitool.mjs`: erfolgreich.
@@ -98,4 +100,5 @@ Verbindliche Ausführungsreihenfolge:
 ## Vollstaendige Release-Historie
 
 - Fuer die vollstaendige Versionshistorie siehe [PATCHNOTES.de.md](PATCHNOTES.de.md).
+
 

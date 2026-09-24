@@ -2,7 +2,7 @@
 
 [🇬🇧 English Version](theme-style-separation.md)
 
-Versionsbezug: `0.9.1`
+Versionsbezug: `0.9.2`
 
 ## Ziel
 
@@ -14,7 +14,7 @@ Eine saubere Trennung zwischen Layout-Rendering (Button-Style) und visueller Far
 - Registry-basierte Auflösung und Ausführung der Style-Renderer in `src/core/graphics/styles/button-style-renderer.ts`.
 - Theme-Presets liefern nur Farb-/Textdefaults und überschreiben keine Style-Auswahl.
 - Die Theme-Preset-Aggregation befindet sich in `src/core/themes/theme-registry.ts`.
-- Theme-IDs, Labels, Paletten und Rendering-Overrides liegen in zur Laufzeit geladenen `com.ulli.printbuddy.sdPlugin/themes/*.theme.json`-Dateien. Pro lädt zusätzlich Benutzer-Themes aus `Dokumente/PrintBuddy/Themes`; die generierten Property-Inspector-Defaults verwenden die mitgelieferten JSON-Dateien.
+- Theme-IDs, Labels, Paletten und Rendering-Overrides liegen in zur Laufzeit geladenen `com.ulli.printbuddy.sdPlugin/themes/*.theme.json`-Dateien. Pro lädt zusätzlich Benutzer-Themes aus `com.ulli.printbuddy.sdPlugin/themes/userthemes`; die generierten Property-Inspector-Defaults verwenden die mitgelieferten JSON-Dateien.
 - Runtime-Consumer importieren direkt aus der kanonischen `themes`-Domäne; die früheren Kompatibilitäts-Wrapper unter `src/core/theme/` wurden entfernt.
 - Die Normalisierung von Action-Einstellungen erfolgt in `src/core/action-settings.ts`.
 - `src/core/render/ButtonRenderer.ts` kombiniert den aufgelösten Style-Hintergrund mit Meldungs- oder Telemetrietext; er verwendet aufgelöste Einstellungen, übernimmt aber weder Theme-Auswahl noch Style-Definitionen.
@@ -41,3 +41,4 @@ Eine saubere Trennung zwischen Layout-Rendering (Button-Style) und visueller Far
 - Rückwärtskompatible Rendering-API.
 - Eindeutige Moduldateinamen ersetzen mehrdeutige `index.ts`- und `settings.ts`-Namen.
 - PrintBuddy Status verwendet jetzt einen gemeinsamen 144x144-Kompositionspfad für reguläre Telemetrie und lokalisierte Verbindungsmeldungen, ohne Theme-, Style- und Textlayout-Verantwortlichkeiten zu vermischen.
+

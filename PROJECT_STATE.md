@@ -12,7 +12,7 @@
   <a href="https://github.com/SinglerGold2/PrintBuddy/actions/workflows/build.yml">
     <img src="https://github.com/SinglerGold2/PrintBuddy/actions/workflows/build.yml/badge.svg" alt="Build Status" />
   </a>
-  <img src="https://img.shields.io/badge/version-v0.10.6-blue" alt="Version" />
+  <img src="https://img.shields.io/badge/version-v0.10.7-blue" alt="Version" />
 </p>
 
 <p align="center">
@@ -21,7 +21,7 @@
 </p>
 
 Status date: 24.09.2026 (local)
-Version status: `0.10.6`
+Version status: `0.10.7`
 
 ## Goal
 
@@ -31,7 +31,9 @@ Deliver a stable, professional Stream Deck plugin for 3D printer monitoring and 
 
 ### Done
 
-- Release version synchronized to `0.10.6` across manifest, package metadata, build metadata and documentation.
+- Localized display text across 13 languages and added independent theme text positions (editable only in Pro/User Theme).
+
+- Release version synchronized to `0.10.7` across manifest, package metadata, build metadata and documentation.
 - Status, Status FX and MultiExtruder settings are organized into localized tabs.
 - Status FX gauges support separate visibility per data type, configurable temperature ranges and colours for normal and over-100% values.
 - Ring, arc and segmented gauge layouts keep their labels and values readable.
@@ -43,7 +45,7 @@ Deliver a stable, professional Stream Deck plugin for 3D printer monitoring and 
 - Localized printer-status messages are centered through a consistent top-edge contract between text layout and SVG serialization.
 - PrintBuddy Status uses a central renderer for backgrounds, messages and telemetry while preserving existing theme/style geometry.
 - Klingon locale support and its flag asset were removed completely.
-- The 12 active locales are centralized and PI catalogs are generated from runtime TypeScript locale sources.
+- The 13 active locales are centralized and PI catalogs are generated from runtime TypeScript locale sources.
 - Arabic switches Property Inspectors to RTL; all other locales restore LTR.
 - The i18n audit validates catalog parity, generated output, flags, script order and removed-locale references.
 - Generic core filenames were replaced by descriptive module names.
@@ -62,6 +64,8 @@ Deliver a stable, professional Stream Deck plugin for 3D printer monitoring and 
 
 ### In Progress
 
+- Hardware checks for zero-offset compatibility, independent text shifts, dial alignment and clipping remain outstanding.
+
 - Physical Stream Deck verification is in progress for Multitool IP entry stability and Lite/Pro extruder interaction behavior.
 
 ### Blocked
@@ -70,11 +74,15 @@ Deliver a stable, professional Stream Deck plugin for 3D printer monitoring and 
 
 ## Validation
 
-- `npm run build`: passed for release `0.10.6`.
-- `npm run i18n:audit`: passed with 13 active locales and 166 reference keys.
+- `npm run build`: passed for release `0.10.7`.
+- `npm run i18n:audit`: passed with 13 active locales and 195 reference keys.
 - `npx tsc --noEmit`: passed.
 - `node scripts/test-status-webcam.mjs`: passed.
 - `node scripts/test-multitool.mjs`: passed.
+- `npm run test:text`, `npm run test:providers`, `npm run test:logos`: passed.
+- `node scripts/test-control.mjs`, `node scripts/test-theme-files.mjs`, `npm run test:editions`: passed.
+- Updated the Status/Webcam regression to initialize the theme registry and verify theme persistence, independent message offsets and Pro/Lite restrictions instead of the obsolete theme-free UI contract.
+- `git diff --check`: passed. Physical Stream Deck validation remains outstanding.
 - Generated plugin bundle contains the corrected `dominant-baseline="text-before-edge"` SVG contract.
 - Generated plugin bundle contains distinct preset tokens (e.g. Prusa/Klipper/Synthwave), confirming static theme registration in output.
 - Isolated Property Inspector smoke test: passed for all 12 locales, Arabic RTL and LTR restoration.

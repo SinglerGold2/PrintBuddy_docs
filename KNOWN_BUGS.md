@@ -12,7 +12,7 @@
   <a href="https://github.com/SinglerGold2/PrintBuddy/actions/workflows/build.yml">
     <img src="https://github.com/SinglerGold2/PrintBuddy/actions/workflows/build.yml/badge.svg" alt="Build Status" />
   </a>
-  <img src="https://img.shields.io/badge/version-v0.10.6-blue" alt="Version" />
+  <img src="https://img.shields.io/badge/version-v0.10.7-blue" alt="Version" />
 </p>
 
 <p align="center">
@@ -21,7 +21,7 @@
 </p>
 
 Status date: 24.09.2026
-Version: `0.10.6`
+Version: `0.10.7`
 
 ## Critical
 

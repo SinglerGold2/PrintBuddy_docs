@@ -1,5 +1,16 @@
 # Patch Notes
 
+## Version 0.10.7 - 24.09.2026
+
+### Changes
+
+- Localized printer display states and messages across 13 language catalogs.
+- Added independent theme-backed X/Y offsets for labels, values, tool text, messages and Control dial text. Zero offsets preserve the existing layout.
+- Text positions are editable only in Pro with User Theme selected; fixed presets and Lite inherit theme-defined positions. Pro theme files persist them under `text.positions`.
+- Preserved Control Lite preset selection, mapped Multitool offsets by tool ID and separated shifted dial text into independent overlay layers.
+- Added regressions for text positioning, localization, theme persistence, settings stability and edition restrictions.
+- Includes the Control preset refactor, logo offsets and the Creality preset for Lite. Physical Stream Deck checks for alignment and clipping remain outstanding.
+
 ## Version 0.10.6 - 24.09.2026
 
 ### Changes
@@ -47,7 +58,7 @@
   <a href="https://github.com/SinglerGold2/PrintBuddy/actions/workflows/build.yml">
     <img src="https://github.com/SinglerGold2/PrintBuddy/actions/workflows/build.yml/badge.svg" alt="Build Status" />
   </a>
-  <img src="https://img.shields.io/badge/version-v0.10.6-blue" alt="Version" />
+  <img src="https://img.shields.io/badge/version-v0.10.7-blue" alt="Version" />
 </p>
 
 <p align="center">

@@ -12,7 +12,7 @@
   <a href="https://github.com/SinglerGold2/PrintBuddy/actions/workflows/build.yml">
     <img src="https://github.com/SinglerGold2/PrintBuddy/actions/workflows/build.yml/badge.svg" alt="Build Status" />
   </a>
-  <img src="https://img.shields.io/badge/version-v0.10.6-blue" alt="Version" />
+  <img src="https://img.shields.io/badge/version-v0.10.7-blue" alt="Version" />
 </p>
 
 <p align="center">
@@ -21,7 +21,7 @@
 </p>
 
 Last updated: 24.09.2026 (local)
-Version status: `0.10.6`
+Version status: `0.10.7`
 
 ## Goal
 
@@ -67,3 +67,10 @@ PrintBuddy is a Stream Deck plugin for monitoring and controlling 3D printers (c
 - For the complete version history, see [PATCHNOTES.md](PATCHNOTES.md).
 
 
+
+## Display text and positions (0.10.7)
+
+Localized printer states and messages across 13 languages; independent X/Y offsets
+for labels, values, tool text, messages and dial text. Editing is restricted to
+Pro/User Theme; fixed presets and Lite inherit theme `text.positions`. Zero offsets
+preserve the existing layout. Visual hardware verification remains outstanding.

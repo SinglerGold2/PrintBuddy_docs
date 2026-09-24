@@ -1,5 +1,16 @@
 # PrintBuddy
 
+## Display text and positions (v0.10.7)
+
+Printer states and display messages are localized across 13 languages. Labels,
+values, tool text, messages and Control dial text have independent X/Y offsets.
+In **Pro → User Theme**, expand the text-position controls to edit them. Fixed
+presets and Lite use the positions defined by their theme; zero offsets preserve
+the existing layout. Pro's **Save as…** stores offsets in `text.positions`.
+
+Regression coverage: `npm run test:text`. Visual checks on Stream Deck hardware,
+especially dial alignment and clipping, remain outstanding.
+
 ## Provider integration (v0.10.6)
 
 Pro and Lite offer **Klipper / Moonraker** (default for existing profiles), **local PrusaLink v1** and **Bambu LAN (local)** in every included Property Inspector. Provider selection is not an edition difference. For Bambu LAN, enter the local printer address, serial number and LAN access code; real-printer validation remains outstanding. For PrusaLink, enter the printer's local address and either an API key (where supported by firmware) or its PrusaLink username/password for HTTP Digest authentication. An API key takes precedence. Do not use Prusa Connect cloud credentials.
@@ -44,7 +55,7 @@ Regression test: `npm run test:logos`.
   <a href="https://github.com/SinglerGold2/PrintBuddy/actions/workflows/build.yml">
     <img src="https://github.com/SinglerGold2/PrintBuddy/actions/workflows/build.yml/badge.svg" alt="Build Status" />
   </a>
-  <img src="https://img.shields.io/badge/version-v0.10.6-blue" alt="Version" />
+  <img src="https://img.shields.io/badge/version-v0.10.7-blue" alt="Version" />
 </p>
 
 <p align="center">
@@ -54,7 +65,7 @@ Regression test: `npm run test:logos`.
 
 Stream Deck plugin for monitoring and controlling 3D printers (focused on Klipper/Moonraker).
 
-**Current Version:** `0.10.6`
+**Current Version:** `0.10.7`
 
 ## Changelog (v0.10.6)
 
@@ -105,7 +116,7 @@ Stream Deck plugin for monitoring and controlling 3D printers (focused on Klippe
 - Multiple actions for status, FX/gauges, multi-tool monitoring, webcam and printer control
 - Theme system with centralized presets
 - Theme-specific text defaults (status/message)
-- Runtime + Property Inspector localization across 12 active locales
+- Runtime + Property Inspector localization across 13 active locales
 - Generated Property Inspector catalogs sourced from the canonical TypeScript runtime locales
 - Per-key `en_gb` fallback and automatic RTL/LTR direction handling for Arabic
 - Automatic build metadata and DIN 5008 timestamp in all Property Inspector footers
